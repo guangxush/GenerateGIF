@@ -14,3 +14,9 @@
 ### Main
 - main 最终的调用
 
+### 参考文档
+- [参考链接](https://github.com/rtyley/animated-gif-lib-for-java)
+
+### jar包下载
+- [下载链接](http://www.java2s.com/Code/Jar/a/Downloadanimatedgiflib10jar.htm)
+
