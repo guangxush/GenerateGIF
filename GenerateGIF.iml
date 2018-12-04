@@ -16,5 +16,20 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/commons-codec-1.11-bin" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://$USER_HOME$/Downloads/commons-codec-1.11-bin/apidocs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="file://$USER_HOME$/Downloads/commons-codec-1.11-bin" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Downloads/commons-codec-1.11-bin" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Downloads/commons-codec-1.11-bin" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -18,5 +18,5 @@
 - [参考链接](https://github.com/rtyley/animated-gif-lib-for-java)
 
 ### jar包下载
-- [下载链接](http://www.java2s.com/Code/Jar/a/Downloadanimatedgiflib10jar.htm)
-
+- [animated-gif-lib-1.4.jar](http://www.java2s.com/Code/Jar/a/Downloadanimatedgiflib10jar.htm)
+- [commons-codec-1.11.jar](https://commons.apache.org/proper/commons-codec/download_codec.cgi)

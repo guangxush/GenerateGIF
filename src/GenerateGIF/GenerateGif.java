@@ -37,7 +37,7 @@ public class GenerateGif {
             int frequency = 2;
             for (BufferedImage image : images) {
                 if((++count)%frequency==0){
-                    encoder.setDelay(50);
+                    encoder.setDelay(50*frequency);
                     encoder.addFrame(image);
                 }
             }

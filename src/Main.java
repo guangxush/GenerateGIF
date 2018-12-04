@@ -1,7 +1,10 @@
+import GenerateGIF.CompressPic;
 import GenerateGIF.GenerateGif;
 import GenerateGIF.GetFiles;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Main {
@@ -14,8 +17,19 @@ public class Main {
         try {
             preview.createNewFile();
             System.out.println("文件大小是："+preview.length()/1024+"KB");
+            System.out.println(DigestUtils.md5Hex(new FileInputStream(preview)));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+//        String fileName = "jpg图片压缩测试";
+//        File file = new File(fileName);
+//        float qality = (float)0.4;
+//        try {
+//            CompressPic.compressPictureByQality(file,qality);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
     }
 }
