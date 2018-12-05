@@ -9,7 +9,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
+/**
+ * @author guangxush
+ */
 public class GenerateGif {
 
     /**
@@ -21,10 +25,11 @@ public class GenerateGif {
     public static File generatePreview(File[] files, Boolean isPressed) {
         try {
             BufferedImage[] images = null;
-            if(isPressed)
+            if(isPressed){
                 images = parseCompressed(files);
-            else
+            }else{
                 images = parse(files);
+            }
             Path path = Files.createTempFile("preview_", ".gif");
             System.out.println(path);
             AnimatedGifEncoder encoder = new AnimatedGifEncoder();
@@ -34,7 +39,7 @@ public class GenerateGif {
             encoder.start(new FileOutputStream(path.toFile()));
             int count = 1;
             //采样频率，数字越大，文件越小，丢失的帧越多，设置为1可保持原帧
-            int frequency = 2;
+            int frequency = 3;
             for (BufferedImage image : images) {
                 if((++count)%frequency==0){
                     encoder.setDelay(50*frequency);
@@ -58,15 +63,20 @@ public class GenerateGif {
      */
     private static BufferedImage[] parseCompressed(File[] files) {
         BufferedImage[] bi = new BufferedImage[files.length];
+        int biIndex = 0;
         try {
             for (int index = 0; index < files.length; index++) {
-                bi[index] = CompressPic.compressPic(ImageIO.read(files[index]));
+                //过滤掉压缩可能产生的空值
+                if(CompressPic.compressPic(ImageIO.read(files[index]))==null){
+                    continue;
+                }
+                bi[biIndex++] = CompressPic.compressPic(ImageIO.read(files[index]));
             }
         } catch (IOException e) {
-            System.out.println("fail to parse template");
-            throw new RuntimeException("fail to parse template", e);
+            System.out.println("fail to parse compressed template");
+            throw new RuntimeException("fail to parse compressed template", e);
         }
-        return bi;
+        return Arrays.copyOfRange(bi,0,biIndex);
     }
 
     /**

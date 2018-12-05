@@ -12,11 +12,20 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+
+/**
+ * @author guangxush
+ */
 public class CompressPic {
 
-    private static boolean proportion = true; // 是否等比缩放标记(默认为等比缩放)
-    private static int outputWidth = 300; // 默认输出图片宽
-    private static int outputHeight = 225; // 默认输出图片高
+    /**
+     * proportion：是否等比缩放标记(默认为等比缩放)
+     * outputWidth：默认输出图片宽
+     * outputHeight：默认输出图片高
+     */
+    private static boolean proportion = true;
+    private static int outputWidth = 300;
+    private static int outputHeight = 225;
 
     /**
      * 对图片进行压缩处理
@@ -45,8 +54,10 @@ public class CompressPic {
                     newWidth = (int) (((double) img.getWidth(null)) / rate);
                     newHeight = (int) (((double) img.getHeight(null)) / rate);
                 } else {
-                    newWidth = outputWidth; // 输出的图片宽度
-                    newHeight = outputHeight; // 输出的图片高度
+                    // 输出的图片宽度
+                    newWidth = outputWidth;
+                    // 输出的图片高度
+                    newHeight = outputHeight;
                 }
                 imgCompressed = new BufferedImage((int) newWidth, (int) newHeight, BufferedImage.TYPE_INT_RGB);
                 /*
@@ -83,7 +94,8 @@ public class CompressPic {
         // 这里指定压缩的程度，参数qality是取值0~1范围内，
         imgWriteParams.setCompressionQuality(qality);
         imgWriteParams.setProgressiveMode(imgWriteParams.MODE_DISABLED);
-        ColorModel colorModel =ImageIO.read(file).getColorModel();// ColorModel.getRGBdefault();
+        // ColorModel.getRGBdefault();
+        ColorModel colorModel =ImageIO.read(file).getColorModel();
         imgWriteParams.setDestinationType(new javax.imageio.ImageTypeSpecifier(
                 colorModel, colorModel.createCompatibleSampleModel(32, 32)));
         System.out.println("结束设定压缩图片参数");

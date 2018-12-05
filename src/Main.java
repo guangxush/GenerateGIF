@@ -7,10 +7,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ * @author guangxush
+ */
 public class Main {
 
     public static void main(String[] args) {
-        String filePath = "这里填写你需要生成GIF的多张png图片存放路径";
+        String filePath = "需要生成GIF的图片素材目录";
         File[] files = GetFiles.getFiles(filePath);
         //如果isPressed设置为true会对Gif图片进行压缩处理
         File preview = GenerateGif.generatePreview(files, true);
